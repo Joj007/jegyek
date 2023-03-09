@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApp10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp10"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.ColumnSpan="2" Content="Név"/>
+        <Label Grid.ColumnSpan="2" Grid.Row="1" Content="Tantárgy"/>
+        <Label Grid.ColumnSpan="2" Grid.Row="2" Content="Dátum"/>
+        <Label Grid.ColumnSpan="2" Grid.Row="3" Content="Jegy"/>
+        <Label x:Name="lblJegy"
+               Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="1" Content="3"/>
+
+        <TextBox x:Name="txtNev" HorizontalAlignment="Left" Height="30" Width="200" Grid.Column="2"/>
+        <ComboBox x:Name="cboTargy"
+                  Grid.Row="1" Grid.Column="2" Height="30" Width="200" HorizontalAlignment="Left">
+            <ComboBoxItem IsSelected="True" Content="Magyar"/>
+            <ComboBoxItem Content="Matek"/>
+            <ComboBoxItem Content="Tesi"/>
+            <ComboBoxItem Content="Ének"/>
+            <ComboBoxItem Content="Angol"/>
+        </ComboBox>
+        <DatePicker x:Name="dpDatum" SelectedDate="2023.03.06" Grid.Row="2" Grid.Column="2" Width="200" Height="30" HorizontalAlignment="Left"/>
+        <Slider IsSnapToTickEnabled="True"
+                ValueChanged="sliJegy_ValueChanged" x:Name="sliJegy" 
+                Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" 
+                Width="200" Height="30" Value="3" Minimum="1" Maximum="5"
+                TickFrequency="1"/>
+        <Button Click="btnRogzit_Click" x:Name="btnRogzit" Content="Rögzít" Grid.Row="4" Grid.ColumnSpan="3" Margin="250 20"/>
+        <Button Click="btnRogzit_Click" x:Name="btnRogzit" Content="Betölt" Grid.Row="4" Grid.ColumnSpan="3" Margin="250 20"/>
+    </Grid>
+</Window>
